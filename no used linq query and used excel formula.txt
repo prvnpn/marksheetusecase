@@ -1,0 +1,40 @@
+DT.AsEnumerable.Where(function (r) cint(r("English").ToString)<40 or cint(r("Urdu").ToString)<40 or cint(r("Physics").ToString)<40 or cint(r("Math").ToString)<40 or cint(r("Chemistry").ToString)<40 or cint(r("Biology").ToString)<40).ToArray
+
+1. total
+
+"=SUM(E"+RowIndex.ToString+":"+"J"+RowIndex.ToString+")"
+
+
+in excel format---=SUM(E2:J2)
+
+------------------------
+2.percentage
+
+"=K"+RowIndex.ToString+"/"+totalsubmark.ToString+"*100"
+
+
+in excel format-=====K2/600*100
+
+
+---------------------------------------
+3.counting subject to fail
+
+"=IF(COUNTIFS(E"+RowIndex.ToString+":"+"J"+RowIndex.ToString+","+"""<"+Failcount+""""+")"+","+"COUNTIFS(E"+RowIndex.ToString+":"+"J"+RowIndex.ToString+","+"""<"+Failcount+""""+")"+","+""""""+")"
+
+
+or
+
+"=IF(COUNTIFS(E"+RowIndex.ToString+":"+"J"+RowIndex.ToString+","+"""<"+Failcount+""""+")"+","+"COUNTIFS(E"+RowIndex.ToString+":"+"J"+RowIndex.ToString+","+"""<40"""+")"+","+""""""+")"
+
+
+
+in excel---====IF(COUNTIFS(E2:J2,"<40"),COUNTIFS(E2:J2,"<40"),"")
+------------------------------------------
+
+4. Rank
+
+"=IF(M"+RowIndex.ToString+"="+""""""+","+"RANK(K"+RowIndex.ToString+","+"$K$"+"2"+":"+"$K$"+(ROW.ToString+"1")+","+"0),"+"""NA"""+")"
+
+
+
+in excel formula format ==== =IF(M2="",RANK(K2,$K$2:$K$121,0),"NA")
